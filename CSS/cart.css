@@ -1,0 +1,153 @@
+
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background-color: #FFFFFF; 
+}
+
+.header-content li {
+    font-family: Roboto;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+
+}
+.header-content {
+    display: flex;
+    gap: 50px;
+}
+.header-content li a{
+    text-decoration: none;
+    color: #333;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+
+
+}
+.cart-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container h1 {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 0.5rem;
+}
+
+.cart-items {
+    margin-bottom: 2rem;
+}
+
+.cart-summary {
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid #eaeaea;
+    margin-top: 1rem;
+}
+
+.cart-summary h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#checkout-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#checkout-button:hover {
+    background-color: #218838;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.footer img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footer-content {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-content a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-content a:hover {
+    color: #ffd700;
+}
+.popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#close-popup {
+    margin-top: 10px;
+}

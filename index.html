@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/CSS/style.css" rel="stylesheet">
+    <script src="/javaScript/main.js" defer></script>
+    <!-- <script src="/javaScript/admin.js" defer></script> -->
+    <script src="/javaScript/cart.js" defer></script>
+    <script src="/javaScript/product.js" defer></script>
+    <title>Candleaf</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <img src="../assets/logo.png" alt="logo" id="header-logo">
+        <ul class="header-content">
+            <li><a href="Discovery">Discovery</a></li>
+            <li><a href="/html/product.html">Products</a></li>
+            <li><a href="About">About</a></li>
+            <li><a href="Contact us">Contact us</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="What are you looking for?" />        
+        </div>
+        <div id="searchResults"></div>
+        
+        <div class="log-cart">
+            <a href="./html/cart.html" aria-label="Login">
+                <button id="cart-icon">Cart</button>
+                <img id='cart-icon' src="assets/Cart.png" alt="cart image" />
+            </a>
+            <a href="/" id="user-info-link">
+                <img src="assets/Vector.png" />
+            </a>
+            <button id="user-info-button">User Info</button>
+            <div id="user-info-display" style="display:none;">
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section class="inner-container">
+        <div class="main-container">
+            <img src="../assets/plant.png" alt="home image" id="home-image">
+            <h1 id="home-title">The nature candle</h1>
+            <p id="home-description">All handmade with natural soy wax, Candleaf is a companion for all your pleasure moments</p>
+            <button id="home-button">Discovery our collection</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-container">
+        <h2 id="products-heading">Products</h2>
+        <p id="products-description">Order it for you or for your beloved ones </p>
+        <div class="product-cards"></div>
+    </section>
+    <section class="products-container">
+        <h2 id="products-heading">Testimonials</h2>
+        <p id="products-description"></p>
+        <div class="product-cards"></div>
+    </section>
+    
+    <div class="footer">
+        <img  id="footer-img" src="assets/footer.png" alt="leaf icon"> 
+        <p>Your natural candle made for your home and for your wellness.</p>
+        <ul class="footer-content">
+            <li><a href="Discovery">Discovery</a></li>
+            <li><a href="About">About</a></li>
+            <li><a href="Contact us">Contact us</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

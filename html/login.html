@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/CSS/login.css" rel="stylesheet" />
+    <script src="/javaScript/login.js" defer></script>
+  </head>
+  <body>
+
+    <div id="error"></div>
+    <div class="section">
+      <div class="login-box">
+        <form id="form" action="/" method="get">
+            <div class="continer-log">
+                <img src="../assets/footer.png" alt="logo" id="logo" />
+            </div>
+          <h1>Login</h1>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input id="email" type="email" required placeholder="Email"/>
+            <!-- <label>Email</label> -->
+          </div>
+          <div class="input-box">
+            <span class="icon"
+              ><ion-icon name="lock-closed-outline"></ion-icon
+            ></span>
+            <input id="pass" type="password" required placeholder="password" />
+            <!-- <label>Password</label> -->
+          </div>
+          <div class="remmber-forget">
+            <label><input type="checkbox" />Remember me </label>
+            <a id="fe" href="#">Forget Password?</a>
+          </div>
+          <button type="submit">Login</button>
+          <div class="regester-link">
+            <p>Don't have an acount?<a href="register.html">Register</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

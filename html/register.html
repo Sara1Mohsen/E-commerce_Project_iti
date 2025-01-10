@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link href="/CSS/register.css" rel="stylesheet">
+    <script src="/javaScript/register.js" defer></script>
+
+
+    
+  </head>
+  <body>
+ 
+    <div class="container">
+      
+      <!-- <form id="register-form">
+        <input type="text"  placeholder="enter your name">
+        <input type="email" placeholder="email">
+        <input type="password" placeholder="password
+        ">
+      </form> -->
+      <div class="section">
+        <h1>Register</h1>
+        <div class="login-box">
+          <form id="form" action="../index.html" method="post">
+              <div class="continer-log">
+                  <img src="../assets/footer.png" alt="logo" id="logo" />
+              </div>
+              <div class="input-box">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>  
+                <input type="text" id="name"  placeholder="enter your name" required>
+              </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+              <input id="email" type="email" required placeholder="Email"/>
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="lock-closed-outline"></ion-icon
+              ></span>
+              <input id="pass" type="password" required placeholder="password" />
+            </div>
+            <div class="input-box">
+              <span class="icon"
+                ><ion-icon name="lock-closed-outline"></ion-icon
+              ></span>
+              <input id="confirmPass" type="password" required placeholder="confirm password" />
+            </div>
+            <div class="input-box">
+
+   
+                <select name="role" id="role" required>
+                  <option value="">--Please choose  Are you customer or seller--</option>
+                  <option value="customer">Customer</option>
+                  <option value="seller">Seller</option>
+                </select>
+              
+            </div>
+            <button type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

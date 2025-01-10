@@ -1,0 +1,165 @@
+/* Universal Reset and Box Model */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #ecf0f1;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #34495e;
+  transform: translateX(5px);
+}
+
+/* Close Button */
+.close {
+  text-align: right;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ecf0f1;
+  margin-bottom: 20px;
+}
+
+/* Content Section */
+#content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#addProductForm,
+#editProductForm,
+#editUserForm,
+#addUserForm {
+  width: 300px;
+  margin:0 auto;
+}
+label {
+  font-weight: bold;
+}
+
+input, textarea, button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #56b280;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #00b345;
+}
+
+/* Product List Styling */
+.product-list {
+  margin-top: 30px;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+/* Delete Button Styling */
+.delete-user, .delete-product ,.delete-seller,.delete-customer{
+  justify-content: space-between;
+  background-color: #405b76;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-user:hover, 
+.delete-product:hover ,
+.close:hover{
+  background-color: #2c3e50;
+}
+
+/* Icon Styling */
+.home-icon {
+  width: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
