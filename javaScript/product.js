@@ -1,27 +1,3 @@
-// window.addEventListener('load' ,function(){
-//     const discoverbutton = this.document.getElementById('home-button');
-
-//     discoverbutton.addEventListener('click', ()=>{
-//         fetch('http://localhost:3000/products').then(res=>{
-//             res.json().then(result=>{
-//                 let targetTable = this.document.createElement('table')
-//                 targetTable.innerHTML= `<tr><th>name</th><th>ID</th></tr>`               
-//                 for(let i = 0; i<result.length; i++){
-//                     let targetTr = this.document.createElement('tr');
-//                     for (const key in products) {
-//                         let targetTd = this.document.createElement('td');
-//                         targetTd.innerHTML = products[key];
-//                         targetTr.appendChild(targetTd);
-//                     }
-//                    targetTable.appendChild(targetTr);
-//                 }discoverbutton.appendChild(targetTable);
-
-//             })
-
-//         })
-//     })
-// })
-
 fetch('http://localhost:3000/products')
     .then(response => {
         if (!response.ok) {
@@ -39,14 +15,13 @@ fetch('http://localhost:3000/products')
                 card.innerHTML = `
                     <img src="${product.image}" alt="${product.name}">
                     <p class="candel-name">${product.name}</p>
-                    <span class="candel-price">&dollar;${product.price}</span>
+                    <span class="candel-price">$${product.price.toFixed(2)}</span>
                     <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
                 `;
                 productCards.appendChild(card);
             });
 
-            const addToCartButtons = document.querySelectorAll(".add-to-cart");
-            addToCartButtons.forEach(button => {
+            document.querySelectorAll(".add-to-cart").forEach(button => {
                 button.addEventListener("click", (e) => {
                     const productId = e.target.dataset.id;
                     addToCart(productId);
@@ -56,100 +31,38 @@ fetch('http://localhost:3000/products')
             console.error("Product cards container not found in the DOM.");
         }
     })
-    
-
+    .catch(error => console.error('Error fetching products:', error));
 
 function addToCart(productId) {
-    console.log(`Product with ID ${productId} added to cart`);
-    
-}
-const products = [];
-function initializeSearch() {
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-      searchInput.addEventListener('input', handleSearch);
-    } else {
-      console.error("Search input element not found.");
-    }
-  }
-
-  function handleSearch() {
-    if (!products || products.length === 0) {
-      console.log("No products available yet.");
-      return;
-    }
-    const searchTerm = this.value.toLowerCase();
-    const filteredProducts = products.filter(product =>
-      product.name.toLowerCase().includes(searchTerm)
-    );
-    displaySearchResults(filteredProducts);
-  }
-  function displaySearchResults(filteredProducts) {
-    const searchResults = document.getElementById('searchResults');
-    searchResults.innerHTML = '';
-  
-    if (filteredProducts.length === 0) {
-      searchResults.innerHTML = '<p>No products found for your search.</p>';
-      return;
-    }
-  
-    filteredProducts.forEach(product => {
-      const productDiv = document.createElement('div');
-      productDiv.className = 'product';
-      productDiv.innerHTML = `
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <p>Category: ${product.category}</p>
-        <p>$${product.price.toFixed(2)}</p>
-      `;
-      searchResults.appendChild(productDiv);
-    });
-  }
-
-/////////////////////////////////////////////////////////
-// Select elements
-const searchInput = document.querySelector('.search-input');
-const searchResults = document.getElementById('searchResults');
-
-// Event listener for input
-searchInput.addEventListener('input', debounce(handleSearch, 300));
-
-// Debounce function
-function debounce(func, delay) {
-    let timeout;
-    return function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, arguments), delay);
-    };
-}
-
-// Handle search logic
-function handleSearch() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchTerm)
-    );
-    displaySearchResults(filteredProducts);
-}
-
-// Display search results
-function displaySearchResults(filteredProducts) {
-    searchResults.innerHTML = '';
-
-    if (filteredProducts.length === 0) {
-        searchResults.innerHTML = '<p>No products found for your search.</p>';
+    const userId = sessionStorage.getItem('userId');
+    if (!userId) {
+        alert('You must be logged in to add items to the cart.');
         return;
     }
 
-    filteredProducts.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'product';
-        productDiv.innerHTML = `
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <p>Category: ${product.category}</p>
-            <p>$${product.price.toFixed(2)}</p>
-        `;
-        searchResults.appendChild(productDiv);
+    fetch('http://localhost:3000/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            productId: productId,
+            userId: userId,
+            quantity: 1,
+            status: 'In Cart',
+            dateAdded: new Date().toISOString()
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(cartItem => {
+        console.log('Product added to cart:', cartItem);
+        window.location.href = '../html/cart.html';
+    })
+    .catch(error => {
+        console.error('Error adding product to cart:', error);
+        alert('There was an error adding the product to the cart. Please try again.');
     });
-}   
+}

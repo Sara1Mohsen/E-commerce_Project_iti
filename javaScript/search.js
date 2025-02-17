@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(error => console.error('Error fetching products:', error));
         } else {
-            searchResults.innerHTML = ''; // Clear results if the query is empty
+            searchResults.innerHTML = ''; 
         }
     });
 
     function displaySearchResults(products) {
-        searchResults.innerHTML = ''; // Clear previous results
+        searchResults.innerHTML = ''; 
 
         if (products.length === 0) {
             searchResults.innerHTML = '<p>No products found.</p>';

@@ -18,7 +18,7 @@ form.addEventListener('submit', function (e) {
         messages.push('Password must be longer than 6 characters');
     }
 
-    // If there are any validation messages, show them to the user
+   
     if (messages.length > 0) {
         errorElement.innerText = messages.join(', ');
         return; 
@@ -74,18 +74,16 @@ document.getElementById('form').addEventListener('submit', function (event) {
     })
     .then(response => response.json())
     .then(data => {
-        // After successful registration, handle redirection based on role
         if (data.role === 'admin') {
-            window.location.href = '/admin.html'; // Redirect to Admin Dashboard
+            window.location.href = '/admin.html'; 
         } else if (data.role === 'customer') {
-            window.location.href = '/customer.html'; // Redirect to Customer Dashboard
+            window.location.href = '/customer.html'; 
         } else if (data.role === 'seller') {
-            window.location.href = '../html/seller.html'; // Redirect to Seller Dashboard
+            window.location.href = '../html/seller.html'; 
         } else {
             alert('Role not recognized. Please contact support.');
         }
 
-        // Store user details in localStorage and sessionStorage
         localStorage.setItem('islogin', 'true');
         localStorage.setItem('userName', data.name);
         sessionStorage.setItem('userid', data.id);
@@ -102,7 +100,7 @@ document.getElementById('form').addEventListener('submit', function (event) {
 
 //     var email = document.getElementById("fe").value;
 
-//     // Dummy check for email existence
+    
 //     if (emailArray.indexOf(email) == -1) {
 //         if (email === "") {
 //             alert("Email required.");

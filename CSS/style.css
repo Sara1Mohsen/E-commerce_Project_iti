@@ -5,9 +5,9 @@
 }
 
 /* start header styling */
-.header {
-    display: flex;
-    align-items: center;
+    .header {
+        display: flex;
+        align-items: center;
     justify-content: space-between;
     padding: 15px 25px;
     background-color: #FFFFFF; 
@@ -137,16 +137,16 @@
 }
 /* start product section styling */
 
-.products-container #products-heading{
-    margin-top: 10%;
-    font-family: Poppins;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 57.6px;
-    letter-spacing: -0.8999999165534973px;
-    text-align: center;
-    text-decoration-skip-ink: none;
-}
+    .products-container #products-heading{
+        margin-top: 10%;
+        font-family: Poppins;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 57.6px;
+        letter-spacing: -0.8999999165534973px;
+        text-align: center;
+        text-decoration-skip-ink: none;
+    }
 .products-container #products-description{
     font-family: Poppins;
     color: rgba(94, 110, 137, 1);

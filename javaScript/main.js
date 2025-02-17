@@ -34,13 +34,26 @@ fetch('http://localhost:3000/products')
     })
     .catch(error => console.error('Error fetching products:', error));
 
-// Add to Cart Functionality
-function addToCart(productId) {
-    let userId = sessionStorage.getItem('userId');
-    if (!userId) {
-        alert('You must be logged in to add items to the cart.');
-        return;
+
+function addToCart(product) {
+    const existingCart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+    const existingProduct = existingCart.find(item => item.productId === product.id);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        existingCart.push({
+            productId: product.id,
+            quantity: 1,
+            productName: product.name,
+            productPrice: product.price,
+            productImage: product.image
+        });
     }
+
+    sessionStorage.setItem('cart', JSON.stringify(existingCart));
+    alert(`${product.name} has been added to your cart.`);
 
     fetch('http://localhost:3000/cart', {
         method: 'POST',
@@ -48,9 +61,9 @@ function addToCart(productId) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            productId: productId,
+            productId: product.id, 
             userId: userId,
-            quantity: 1, // Default quantity
+            quantity: 1,
             status: 'In Cart',
             dateAdded: new Date().toISOString()
         })
@@ -63,7 +76,7 @@ function addToCart(productId) {
     })
     .then(cartItem => {
         console.log('Product added to cart:', cartItem);
-        window.location.href = 'cart.html'; // Redirect to cart page
+        window.location.href = 'cart.html';
     })
     .catch(error => {
         console.error('Error adding product to cart:', error);
@@ -71,7 +84,8 @@ function addToCart(productId) {
     });
 }
 
-// Footer Scroll Animation
+
+
 const footScrollAppear = function () {
     const footer = document.querySelector('.footer');
     if (!footer) return;
@@ -87,7 +101,7 @@ const footScrollAppear = function () {
 
 window.addEventListener('scroll', footScrollAppear);
 
-// Cart Icon Redirection
+
 document.addEventListener('DOMContentLoaded', () => {
     const cartIcon = document.getElementById('cart-icon');
 
@@ -101,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Search Functionality
+
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.querySelector('.search-input');
     const searchResults = document.getElementById('searchResults');
@@ -122,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                     .catch(error => console.error('Error fetching products:', error));
             } else {
-                searchResults.innerHTML = ''; // Clear results if the query is empty
+                searchResults.innerHTML = ''; 
             }
         });
     } else {
@@ -130,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function displaySearchResults(products, container) {
-        container.innerHTML = ''; // Clear previous results
+        container.innerHTML = ''; 
 
         if (products.length === 0) {
             container.innerHTML = '<p>No products found.</p>';
@@ -150,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Fetch and Display Testimonials
+
 fetch('http://localhost:3000/testimonials')
     .then(response => {
         if (!response.ok) {
@@ -197,8 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const userInfoDisplay = document.getElementById('user-info-display');
     if (userInfoButton && userInfoDisplay) {
         userInfoButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent any default action if needed
-
+            event.preventDefault(); 
             if (userInfoDisplay.style.display === 'block') {
                 userInfoDisplay.style.display = 'none';
             } else {
@@ -207,22 +220,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (userInfoJSON) {
                     const userInfo = JSON.parse(userInfoJSON);
 
-                    // Clear previous content
+                    
                     while (userInfoDisplay.firstChild) {
                         userInfoDisplay.removeChild(userInfoDisplay.firstChild);
                     }
 
-                    // Create Name paragraph
                     const namePara = document.createElement('p');
                     namePara.textContent = `Name: ${userInfo.name}`;
                     userInfoDisplay.appendChild(namePara);
 
-                    // Create Email paragraph
+                    
                     const emailPara = document.createElement('p');
                     emailPara.textContent = `Email: ${userInfo.email}`;
                     userInfoDisplay.appendChild(emailPara);
-
-                    // Create Logout button
+                    
                     const logoutButton = document.createElement('button');
                     logoutButton.textContent = 'Logout';
                     logoutButton.addEventListener('click', function() {
@@ -231,16 +242,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     userInfoDisplay.appendChild(logoutButton);
                 } else {
-                    // Clear previous content
+                    
                     while (userInfoDisplay.firstChild) {
                         userInfoDisplay.removeChild(userInfoDisplay.firstChild);
                     }
-
-                    // Create login link
                     const loginLink = document.createElement('a');
-                    loginLink.href = 'html/login.html'; // Replace with your login page URL
+                    loginLink.href = 'html/login.html'; 
                     loginLink.textContent = 'Please log in to see your information.';
-                    loginLink.className = 'login-link'; // Optional class for styling
+                    loginLink.className = 'login-link'; 
                     userInfoDisplay.appendChild(loginLink);
                 }
             }

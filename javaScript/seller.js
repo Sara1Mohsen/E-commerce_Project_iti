@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     class SellerDashboard {
         constructor(sellerId) {
-            this.sellerId = sellerId; // Seller ID (assumed to be passed from the backend)
+            this.sellerId = sellerId; 
             this.contentDiv = document.getElementById('content');
             this.initialize();
         }
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this.attachEventListeners();
         }
 
-        // Load products for the logged-in seller
         loadSellerProducts() {
             fetch(`http://localhost:3000/products?sellerId=${this.sellerId}`)
                 .then(response => response.json())
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => console.error('Error fetching products:', error));
         }
 
-        // Render the seller's products in a table
         renderProducts(products) {
             this.contentDiv.innerHTML = `
                 <h2>Your Products</h2>
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <td>${product.category}</td>
                                 <td><img src="${product.image}" alt="${product.name}" style="max-width: 100px;"></td>
                                 <td>
-                                    <button class="edit-product" data-id="${product.id}">Edit</button>
+                                    <button class="edit-product" data-id="${product.id}">Update</button>
                                     <button class="delete-product" data-id="${product.id}">Delete</button>
                                 </td>
                             </tr>
@@ -58,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.attachProductEventListeners();
         }
 
-        // Attach event listeners for edit and delete buttons
+       
         attachProductEventListeners() {
             document.querySelectorAll('.edit-product').forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -79,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Show a modal form to add a new product
+        
         showAddProductForm() {
             const modal = this.createModal(`
                 <h2>Add Product</h2>
@@ -103,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Add a new product
+       
         addProduct() {
             const form = document.getElementById('addProductForm');
             const newProduct = {
@@ -121,12 +119,12 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(() => {
                     alert('Product added successfully!');
-                    this.loadSellerProducts(); // Refresh the product list
+                    this.loadSellerProducts(); 
                 })
                 .catch(error => console.error('Error adding product:', error));
         }
 
-        // Edit an existing product
+        
         editProduct(productId) {
             fetch(`http://localhost:3000/products/${productId}`)
                 .then(response => response.json())
@@ -155,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => console.error('Error fetching product:', error));
         }
 
-        // Save changes to an existing product
+       
         saveProductChanges(productId) {
             const form = document.getElementById('editProductForm');
             const updatedProduct = {
@@ -172,12 +170,12 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(() => {
                     alert('Product updated successfully!');
-                    this.loadSellerProducts(); // Refresh the product list
+                    this.loadSellerProducts(); 
                 })
                 .catch(error => console.error('Error updating product:', error));
         }
 
-        // Delete an existing product
+      
         deleteProduct(productId) {
             if (confirm('Are you sure you want to delete this product?')) {
                 fetch(`http://localhost:3000/products/${productId}`, {
@@ -185,13 +183,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                     .then(() => {
                         alert('Product deleted successfully!');
-                        this.loadSellerProducts(); // Refresh the product list
+                        this.loadSellerProducts(); 
                     })
                     .catch(error => console.error('Error deleting product:', error));
             }
         }
 
-        // Load orders for the logged-in seller
+        
         loadSellerOrders() {
             fetch(`http://localhost:3000/orders?sellerId=${this.sellerId}`)
                 .then(response => response.json())
@@ -201,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => console.error('Error fetching orders:', error));
         }
 
-        // Render the seller's orders in a table
+       
         renderOrders(orders) {
             this.contentDiv.innerHTML = `
                 <h2>Your Orders</h2>
@@ -240,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.attachOrderEventListeners();
         }
 
-        // Attach event listeners for order status updates
+        
         attachOrderEventListeners() {
             document.querySelectorAll('.order-status').forEach(select => {
                 select.addEventListener('change', (e) => {
@@ -251,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Update the status of an order
+      
         updateOrderStatus(orderId, newStatus) {
             fetch(`http://localhost:3000/orders/${orderId}`, {
                 method: 'PATCH',
@@ -260,12 +258,12 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(() => {
                     alert('Order status updated successfully!');
-                    this.loadSellerOrders(); // Refresh the order list
+                    this.loadSellerOrders(); 
                 })
                 .catch(error => console.error('Error updating order status:', error));
         }
 
-        // Utility function to create a modal
+      
         createModal(content) {
             const modal = document.createElement('div');
             modal.innerHTML = `
@@ -282,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Assume sellerId is passed from the backend or stored in session
-    const sellerId = 1; // Replace with the actual seller ID
+
+    const sellerId = 1; 
     const sellerDashboard = new SellerDashboard(sellerId);
 });
