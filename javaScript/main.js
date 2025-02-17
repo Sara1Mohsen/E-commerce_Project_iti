@@ -108,10 +108,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartIcon) {
         cartIcon.addEventListener('click', (e) => {
             e.preventDefault(); 
-            window.location.href = '../html/cart.html'; 
+            window.location.href = './html/cart.html'; 
         });
     } else {
         console.error('Cart icon not found in the DOM.');
+    }
+});
+///////edit discover button
+document.addEventListener('DOMContentLoaded', () => {
+    const cartIcon = document.getElementById('home-button');
+
+    if (cartIcon) {
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            window.location.href = './html/product.html'; 
+        });
+    } else {
+        console.error('NO product to show .');
     }
 });
 
@@ -191,21 +204,8 @@ fetch('http://localhost:3000/testimonials')
     })
     .catch(error => console.error('Error fetching testimonials:', error));
 
+
 // User Info Display
-// document.getElementById('user-info-button').addEventListener('click', function() {
-//   const userInfoContainer = document.getElementById('user-info-display');
-//   const userInfoJSON = localStorage.getItem('userInfo');
-//   if (userInfoJSON) {
-//     const userInfo = JSON.parse(userInfoJSON);
-//     userInfoContainer.innerHTML = 
-//       `<p>Name: ${userInfo.name}</p>
-//        <p>Email: ${userInfo.email}</p>`;
-//     userInfoContainer.style.display = 'block';
-//   } else {
-//     userInfoContainer.innerHTML = '<p>Please log in to see your information.</p>';
-//     userInfoContainer.style.display = 'block';
-//   }
-// });
 document.addEventListener('DOMContentLoaded', function() {
     const userInfoButton = document.getElementById('user-info-button');
     const userInfoDisplay = document.getElementById('user-info-display');

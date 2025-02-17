@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userRole === 'admin') {
                 window.location.href = "/html/admin.html";  
             } else if (userRole === 'customer') {
-                window.location.href = '/index.html';  
+                window.location.href = '../E-commerce_Project_iti/index.html';  
             } else if (userRole === 'seller') {
                 window.location.href = '/html/seller.html'; 
             } else {

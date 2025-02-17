@@ -44,7 +44,7 @@ form.addEventListener('submit', function (e) {
                 if (userRole === 'admin') {
                     window.location.href = "/html/admin.html";  
                 } else if (userRole === 'customer') {
-                    window.location.href = '/index.html';  
+                    window.location.href = './index.html';  
                 } else if (userRole === 'seller') {
                     window.location.href = '/html/seller.html';  
                 } else {

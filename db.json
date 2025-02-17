@@ -12,8 +12,8 @@
       "id": "f949",
       "name": "Sara Mohsen",
       "email": "saramohsen0901@gmail.com",
-      "password": "00000000",
-      "role": "role"
+      "password": "0000000",
+      "role": "customer"
     },
     {
       "id": "48bc",
@@ -151,6 +151,86 @@
       "email": "lolo@gmail.com",
       "password": "4444444",
       "role": "seller",
+      "status": "Active"
+    },
+    {
+      "id": "e89e",
+      "name": "lala",
+      "email": "lala@gmail.com",
+      "password": "1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "6605",
+      "name": "lala",
+      "email": "lala@gmail.com",
+      "password": "1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "2f26",
+      "name": "lala",
+      "email": "lala@gmail.com",
+      "password": "1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "64ae",
+      "name": "lala",
+      "email": "lala@gmail.com",
+      "password": "1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "41f4",
+      "name": "fff",
+      "email": "fff@gmail.com",
+      "password": "1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "4b84",
+      "name": "lala",
+      "email": "lala@gmail.com",
+      "password": "1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "f548",
+      "name": "ggg",
+      "email": "sara@gmail.com",
+      "password": "123456789",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "b797",
+      "name": "dddd",
+      "email": "dddd@gmail.com",
+      "password": "dd1234567",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "76f8",
+      "name": "ggg",
+      "email": "sss@gmail.com",
+      "password": "1234568",
+      "role": "customer",
+      "status": "Active"
+    },
+    {
+      "id": "4f07",
+      "name": "sara",
+      "email": "20912019200951@fci.zu.edu.eg",
+      "password": "4444444",
+      "role": "customer",
       "status": "Active"
     }
   ],
@@ -576,50 +656,43 @@
     {
       "name": "Spiced Mint",
       "price": 99,
-      "category": "undefined",
-      "status": "Pending",
-      "id": "c70e"
-    },
-    {
-      "name": "Spiced Mint",
-      "price": 99,
-      "image": "../assets/image 8.png",
+      "image": "/E-commerce_Project_iti/assets/image 8.png",
       "id": "8e68"
     },
     {
       "name": "Spiced Mint",
       "price": 99,
-      "image": "../assets/image 3.png",
+      "image": "/E-commerce_Project_iti/assets/image 3.png",
       "id": "8e68"
     },
     {
       "name": "Spiced Mint",
       "price": 99,
-      "image": "../assets/image 1.png",
+      "image": "/E-commerce_Project_iti/assets/image 1.png",
       "id": "8e68"
     },
     {
       "name": "Spiced Mint",
       "price": 99,
-      "image": "../assets/image 4.png",
+      "image": "/E-commerce_Project_iti/assets/image 4.png",
       "id": "8e68"
     },
     {
       "name": "Spiced Mint",
       "price": 99,
-      "image": "../assets/image 3.png",
+      "image": "/E-commerce_Project_iti/assets/image 3.png",
       "id": "8e68"
     },
     {
       "name": "Spiced Mint",
       "price": 99,
-      "image": "../assets/image 1.png",
+      "image": "/E-commerce_Project_iti/assets/image 1.png",
       "id": "8e68"
     },
     {
       "name": "Spiced Mint",
       "price": 99,
-      "image": "../assets/image 4.png",
+      "image": "/E-commerce_Project_iti/assets/image 4.png",
       "id": "8e68"
     },
     {
